@@ -1,2 +1,1 @@
-The Printf Project Files
-0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
+this printf project is a collaboration project by Georgina Kimani and Nicholas Mwenda
