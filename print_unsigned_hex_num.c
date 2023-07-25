@@ -61,7 +61,7 @@ int print_hexa(va_list types, char mapto[], char buffer[],
 
 	UNUSED(wid);
 
-	num = convert_size_unsgnd(num, size);
+	num = conv_siz_unsignd(num, size);
 
 	if (num == 0)
 		buffer[j--] = '0';
@@ -82,5 +82,5 @@ int print_hexa(va_list types, char mapto[], char buffer[],
 
 	j++;
 
-	return (write_unsgnd(0, j, buffer, flags, wid, precision, size));
+	return (writ_unsgnd(0, j, buffer, flags, wid, precision, size));
 }

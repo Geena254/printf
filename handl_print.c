@@ -18,12 +18,12 @@ int handl_print(const char *frmt, int *ind, va_list lst, char buffer[],
 	frmt_t frmt_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
-		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
-		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
-		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
+		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadeci},
+		{'X', print_hexa_upper}, {'p', print_pter}, {'S', print_non_printble},
+		{'r', print_reverse}, {'R', print_rot13str}, {'\0', NULL}
 	};
 	for (a = 0; frmt_types[a].frmt != '\0'; a++)
-		if (frmt[*ind] == frmt_types[i].frmt)
+		if (frmt[*ind] == frmt_types[a].frmt)
 			return (frmt_types[a].frmt(lst, buffer, flags, wid, precision, size));
 
 	if (frmt_types[a].frmt == '\0')

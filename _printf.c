@@ -43,12 +43,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &indbuf);
-			flags = get_flags(format, &j);
-			width = get_width(format, &j, lst);
-			precision = get_precision(format, &j, lst);
-			size = get_size(format, &j);
+			flags = print_flags(format, &j);
+			width = print_width(format, &j, lst);
+			precision = print_precision(format, &j, lst);
+			size = print_size(format, &j);
 			++j;
-			printed = handle_print(format, &j, lst, buffer,
+			printed = handl_print(format, &j, lst, buffer,
 					flags, width, precision, size);
 			if (printed == -1)
 				return (-1);
@@ -57,7 +57,7 @@ int _printf(const char *format, ...)
 	}
 
 	print_buffer(buffer, &indbuf);
-	va_end(list);
+	va_end(lst);
 
 	return (printed_chars);
 }

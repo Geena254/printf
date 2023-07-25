@@ -2,7 +2,7 @@
 
 /**
  * print_int - Function that prints an integer
- * @types: A list of arguments
+ * @types: Lista of arguments
  * @buffer: The buffer array to handle print
  * @flags: Calculates the active flags
  * @wid: Gets the width.
@@ -19,7 +19,7 @@ int print_int(va_list types, char buffer[],
 	long int m = va_arg(types, long int);
 	unsigned long int numb;
 
-	m = convert_size_number(n, size);
+	m = conv_siz_num(m, size);
 
 	if (m == 0)
 		buffer[i--] = '0';
@@ -35,11 +35,11 @@ int print_int(va_list types, char buffer[],
 
 	while (numb > 0)
 	{
-		buffer[i--] = (num % 10) + '0';
+		buffer[i--] = (numb % 10) + '0';
 		numb /= 10;
 	}
 
 	i++;
 
-	return (write_number(is_neg, i, buffer, flags, wid, precision, size));
+	return (write_num(is_neg, i, buffer, flags, wid, precision, size));
 }

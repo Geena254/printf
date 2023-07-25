@@ -87,7 +87,6 @@ int write_number(int is_neg, int ind, char buffer[],
  * @leng: the number length
  * @padd: the Pading character
  * @extra_ch: The extra character
- *
  * Return: Number of printed chars.
  */
 int write_num(int ind, char buffer[],
@@ -100,7 +99,7 @@ int write_num(int ind, char buffer[],
 		return (0); /* printf(".0d", 0)  no char is printed */
 	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 		buffer[ind] = padd = ' '; /* width is displayed with padding ' ' */
-	if (precision > 0 && precision < length)
+	if (precision > 0 && precision < leng)
 		padd = ' ';
 	while (precision > leng)
 		buffer[--ind] = '0', leng++;
@@ -125,9 +124,9 @@ int write_num(int ind, char buffer[],
 		}
 		else if (!(flags & F_MINUS) && padd == '0')/* extra char to left of padd */
 		{
-			if (extra_c)
+			if (extra_ch)
 				buffer[--padd_begin] = extra_ch;
-			return (write(1, &buffer[padd_begin], i - padd_begin) +
+			return (write(1, &buffer[padd_begin], a - padd_begin) +
 				write(1, &buffer[ind], leng - (1 - padd_begin)));
 		}
 	}
@@ -145,7 +144,6 @@ int write_num(int ind, char buffer[],
  * @wid: Width specifier
  * @precision: Precision specifier
  * @size: Size specifier
- *
  * Return: Number of written chars.
  */
 int write_unsgnd(int is_neg, int ind,
@@ -177,7 +175,7 @@ int write_unsgnd(int is_neg, int ind,
 	if (wid > len)
 	{
 		for (a = 0; a < wid - len; a++)
-			buffer[i] = padd;
+			buffer[a] = padd;
 
 		buffer[a] = '\0';
 

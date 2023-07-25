@@ -2,7 +2,7 @@
 
 /* PRINT A POINTER */
 /**
- * print_pointer - Function that prints the value of a pointer variable
+ * print_pter - Function that prints the value of a pointer variable
  * @types: A list of arguments
  * @buffer: The buffer array to handle print
  * @flags: Calculates active flags
@@ -11,7 +11,7 @@
  * @size: The size specifier
  * Return: The number of chars printed.
  */
-int print_pointer(va_list types, char buffer[],
+int print_pter(va_list types, char buffer[],
 	int flags, int wid, int precision, int size)
 {
 	char extra_ch = 0, padd = ' ';
@@ -44,14 +44,12 @@ int print_pointer(va_list types, char buffer[],
 		extra_ch = '+', leng++;
 	else if (flags & F_SPACE)
 		extra_ch = ' ', leng++;
-
 	ind++;
 
 	/*return (write(1, &buffer[i], BUFF_SIZE - a - 1));*/
-	return (write_pointer(buffer, ind, leng,
-		wid, flags, padd, extra_ch, padd_start));
+	return (print_pter(buffer, ind, leng,
+		wid, flags, padd, extra_ch, padd_begin));
 }
-
 /* PRINT NON PRINTABLE ASCII CODES */
 /**
  * print_non_printble - Function that prints ascii codes
@@ -80,7 +78,7 @@ int print_non_printble(va_list types, char buffer[],
 
 	while (stri[a] != '\0')
 	{
-		if (is_printble(stri[a]))
+		if (is_printable(stri[a]))
 			buffer[a + offset] = stri[a];
 		else
 			offset += append_hexa_code(stri[a], buffer, a + offset);
@@ -147,7 +145,7 @@ int print_reverse(va_list types, char buffer[],
  * @size: The size specifier
  * Return: The numbers of chars printed
  */
-int print_rot13string(va_list types, char buffer[],
+int print_rot13str(va_list types, char buffer[],
 	int flags, int wid, int precision, int size)
 {
 	char y;
@@ -165,12 +163,12 @@ int print_rot13string(va_list types, char buffer[],
 	UNUSED(size);
 
 	if (stri == NULL)
-		str = "(AHYY)";
-	for (a = 0; str[a]; a++)
+		stri = "(AHYY)";
+	for (a = 0; stri[a]; a++)
 	{
 		for (b = 0; in[b]; b++)
 		{
-			if (in[b] == str[a])
+			if (in[b] == stri[a])
 			{
 				y = out[b];
 				write(1, &y, 1);
@@ -180,7 +178,7 @@ int print_rot13string(va_list types, char buffer[],
 		}
 		if (!in[b])
 		{
-			x = stri[a];
+			y = stri[a];
 			write(1, &y, 1);
 			cnt++;
 		}

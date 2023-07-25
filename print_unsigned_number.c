@@ -11,7 +11,7 @@
  * Return: The number of chars printed.
  */
 
-int print_unsigned(va_list types, char buffer[]
+int print_unsigned(va_list types, char buffer[],
 	int flags, int wid, int precision, int size)
 {
 	int j = BUFF_SIZE - 2;
@@ -32,5 +32,5 @@ int print_unsigned(va_list types, char buffer[]
 
 	j++;
 
-	return (write_unsgnd(0, j, buffer, flags, wid, precision, size));
+	return (writ_unsgnd(0, j, buffer, flags, wid, precision, size));
 }

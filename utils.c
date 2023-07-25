@@ -58,9 +58,9 @@ int is_dig(char a)
  */
 long int conv_siz_num(long int num, int siz)
 {
-	if (siz == S_LNG)
+	if (siz == S_LONG)
 		return (num);
-	else if (siz == S_SHRT)
+	else if (siz == S_SHORT)
 		return ((short)num);
 
 	return ((int)num);
@@ -74,9 +74,9 @@ long int conv_siz_num(long int num, int siz)
  */
 long int conv_siz_unsignd(unsigned long int num, int siz)
 {
-	if (siz == S_LNG)
+	if (siz == S_LONG)
 		return (num);
-	else if (siz == S_SHRT)
+	else if (siz == S_SHORT)
 		return ((unsigned short)num);
 
 	return ((unsigned int)num);

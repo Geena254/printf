@@ -21,7 +21,7 @@ int print_octal(va_list types, char buffer[],
 
 	UNUSED(wid);
 
-	num = convert_size_unsgnd(num, size);
+	num = conv_siz_unsignd(num, size);
 
 	if (num == 0)
 		buffer[h--] = '0';
@@ -39,5 +39,5 @@ int print_octal(va_list types, char buffer[],
 
 	h++;
 
-	return (write_unsgnd(0, h, buffer, flags, wid, precision, size));
+	return (writ_unsgnd(0, h, buffer, flags, wid, precision, size));
 }
