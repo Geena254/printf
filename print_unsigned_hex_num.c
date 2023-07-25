@@ -82,5 +82,5 @@ int print_hexa(va_list types, char mapto[], char buffer[],
 
 	j++;
 
-	return (writ_unsgnd(0, j, buffer, flags, wid, precision, size));
+	return (write_unsgnd(0, j, buffer, flags, wid, precision, size));
 }

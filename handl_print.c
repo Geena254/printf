@@ -17,14 +17,14 @@ int handl_print(const char *frmt, int *ind, va_list lst, char buffer[],
 	int a, unknow_leng = 0, printd_chars = -1;
 	frmt_t frmt_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
-		{'i', print_int}, {'d', print_int}, {'b', print_binary},
+		{'i', print_integer}, {'d', print_integer}, {'b', print_binary},
 		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadeci},
 		{'X', print_hexa_upper}, {'p', print_pter}, {'S', print_non_printble},
 		{'r', print_reverse}, {'R', print_rot13str}, {'\0', NULL}
 	};
 	for (a = 0; frmt_types[a].frmt != '\0'; a++)
 		if (frmt[*ind] == frmt_types[a].frmt)
-			return (frmt_types[a].frmt(lst, buffer, flags, wid, precision, size));
+			return (frmt_types[a].func(lst, buffer, flags, wid, precision, size));
 
 	if (frmt_types[a].frmt == '\0')
 	{

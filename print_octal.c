@@ -39,5 +39,5 @@ int print_octal(va_list types, char buffer[],
 
 	h++;
 
-	return (writ_unsgnd(0, h, buffer, flags, wid, precision, size));
+	return (write_unsgnd(0, h, buffer, flags, wid, precision, size));
 }

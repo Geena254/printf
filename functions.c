@@ -9,46 +9,47 @@
  * @wid: Gets the width
  * @precision: The precision specification
  * @size: The size specifier
- * Return: The number of chars printed.
+ * Return: The number of charsprinted.
  */
 int print_pter(va_list types, char buffer[],
 	int flags, int wid, int precision, int size)
 {
-	char extra_ch = 0, padd = ' ';
-	int ind = BUFF_SIZE - 2, leng = 2, padd_begin = 1; /* length=2, for '0x' */
-	unsigned long num_addrss;
-	char mapto[] = "0123456789abcdef";
-	void *addrss = va_arg(types, void *);
+	char extra_c = 0, padd = ' ';
+	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
+	unsigned long num_addrs;
+	char map_to[] = "0123456789abcdef";
+	void *addrs = va_arg(types, void *);
 
 	UNUSED(wid);
 	UNUSED(size);
 
-	if (addrss == NULL)
+	if (addrs == NULL)
 		return (write(1, "(nil)", 5));
 
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
 
-	num_addrss = (unsigned long)addrss;
+	num_addrs = (unsigned long)addrs;
 
-	while (num_addrss > 0)
+	while (num_addrs > 0)
 	{
-		buffer[ind--] = mapto[num_addrss % 16];
-		num_addrss /= 16;
-		leng++;
+		buffer[ind--] = map_to[num_addrs % 16];
+		num_addrs /= 16;
+		length++;
 	}
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
 	if (flags & F_PLUS)
-		extra_ch = '+', leng++;
+		extra_c = '+', length++;
 	else if (flags & F_SPACE)
-		extra_ch = ' ', leng++;
+		extra_c = ' ', length++;
+
 	ind++;
 
-	/*return (write(1, &buffer[i], BUFF_SIZE - a - 1));*/
-	return (print_pter(buffer, ind, leng,
-		wid, flags, padd, extra_ch, padd_begin));
+	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
+	return (write_pter(buffer, ind, length,
+		wid, flags, padd, extra_c, padd_start));
 }
 /* PRINT NON PRINTABLE ASCII CODES */
 /**
