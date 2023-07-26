@@ -5,14 +5,15 @@
  * @types: the list a of arguments
  * @buffer: The buffer array to handle print
  * @flags:  Calculates active flags
- * @width: Gets the width
+ * @wid: Gets the width
  * @precision: The precision specification
  * @size: The size specifier
  * Return: The number of chars printed.
  */
 
-int print_unsigned(va_list types, char buffer[]
-	int flags, int wid, int precision, int size)
+int print_unsigned(va_list types, char buffer[])
+
+	int flags, int wid, int precision, int size;
 {
 	int j = BUFF_SIZE - 2;
 	unsigned long int numb = va_arg(types, unsigned long int);
