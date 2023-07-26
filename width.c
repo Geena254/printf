@@ -17,7 +17,7 @@ int print_width(const char *format, int *j, va_list lst)
 		if (is_dig(format[cur_i]))
 		{
 			width *= 10;
-			width += format[curr_i] - '0';
+			width += format[cur_i] - '0';
 		}
 		else if (format[cur_i] == '*')
 		{

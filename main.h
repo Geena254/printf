@@ -56,7 +56,7 @@ int print_percent(va_list types, char buffer[],
 	int flags, int wid, int precision, int size);
 
 /**** Functions to print numbers ****/
-int print_int(va_list types, char buffer[],
+int print_integer(va_list types, char buffer[],
 	int flags, int wid, int precision, int size);
 int print_binary(va_list types, char buffer[],
 	int flags, int wid, int precision, int size);
@@ -100,14 +100,14 @@ int handl_print(const char *frmt, int *i, va_list lst, char buffer[], int flags,
 /**** width handler ****/
 int handl_writ_char(char a, char buffer[],
 	int flags, int wid, int precision, int size);
-int writ_num(int is_pos, int ind, char buffer[],
+int write_number(int is_pos, int ind, char buffer[],
 	int flags, int wid, int precision, int size);
-int writ_numb(int ind, char bff[], int flags, int wid, int precision,
+int write_num(int ind, char bff[], int flags, int wid, int precision,
 	int length, char padd, char extra_c);
-int writ_pter(char buffer[], int ind, int leng,
+int write_pter(char buffer[], int ind, int leng,
 	int wid, int flags, char padd, char extra_c, int padd_begin);
 
-int writ_unsgnd(int is_neg, int ind, char buffer[],
+int write_unsgnd(int is_neg, int ind, char buffer[],
 	int flags, int wid, int precision, int size);
 
 /****************** UTILS ******************/

@@ -21,7 +21,7 @@ int print_octal(va_list types, char buffer[],
 
 	UNUSED(wid);
 
-	num = convert_size_unsgnd(num, size);
+	num = conv_siz_unsignd(num, size);
 
 	if (num == 0)
 		buffer[h--] = '0';
