@@ -28,10 +28,11 @@
 typedef struct frmt frmt_t;
 
 /**
- * struct fmt - the struct op
- * @frmt: The format.
- * @func: The function associated.
- */
+  * struct frmt - the struct op.
+  * @frmt: The format.
+  * @func: The function associated.
+  */
+
 struct frmt
 {
 	char frmt;
@@ -95,7 +96,8 @@ int print_rot13str(va_list types, char buffer[],
 	int flags, int wid, int precision, int size);
 
 /**** Function for handle print file ****/
-int handl_print(const char *frmt, int *i, va_list lst, char buffer[], int flags, int wid, int precision, int size);
+int handl_print(const char *frmt, int *i, va_list lst, char buffer[],
+		int flags, int wid, int precision, int size);
 
 /**** width handler ****/
 int handl_writ_char(char a, char buffer[],

@@ -2,10 +2,10 @@
 
 /**
  * print_unsigned - Function that prints an unsigned number
- * @types: the list a of arguments
+ * @types: The list a of arguments
  * @buffer: The buffer array to handle print
- * @flags:  Calculates active flags
- * @wid: Gets the width
+ * @flags: Calculates active flags
+ * @wid: Gets the width.
  * @precision: The precision specification
  * @size: The size specifier
  * Return: The number of chars printed.
